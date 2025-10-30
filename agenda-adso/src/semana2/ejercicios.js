@@ -11,8 +11,8 @@
 // =============================================================
 
 // Uso de 'const' para valores que no cambian (buena práctica ES6+).
-const nombreAprendiz = "Luis Sánchez";
-const ficha = 3223874;
+const nombreAprendiz = "Luis Herrera"; // ⬅️ ¡Nombre actualizado!
+const ficha = 3169901;
 
 // Arrow function (ES6+) para calcular el promedio con retorno implícito.
 const calcularPromedio = (n1, n2, n3) => (n1 + n2 + n3) / 3;
@@ -65,7 +65,8 @@ console.log("-------------------------------------------\n");
 
 
 // =============================================================
-// EJERCICIO 3: Spread Operator y Destructuring
+// EJERCICIO 3: Spread Operator y Destructuring (DEMO)
+// Estos conceptos son clave para React, por eso se incluyen.
 // =============================================================
 
 // Arrow function para crear un objeto Tarea
@@ -75,24 +76,22 @@ const crearTarea = (texto) => ({
     completada: false
 });
 
-let listaTareas = [
+let listaTareasDemo = [
     crearTarea("Instalar React"),
     crearTarea("Aprender ES6+")
 ];
 
 // Uso del Spread Operator (...) para añadir un elemento sin mutar el array original.
-const nuevaTarea = crearTarea("Crear Componentes");
-listaTareas = [...listaTareas, nuevaTarea]; 
+const nuevaTareaDemo = crearTarea("Crear Componentes");
+listaTareasDemo = [...listaTareasDemo, nuevaTareaDemo]; 
 
-console.log("--- Prueba Ejercicio 3: Spread y Destructuring ---");
-console.log("Lista con Spread Operator:", listaTareas);
-
+console.log("--- Prueba Destructuring ---");
 // Destructuring de Array: Extrae elementos por posición
-const [primeraTarea, segundaTarea] = listaTareas;
-console.log(`\nPrimera Tarea (Destructuring): ${primeraTarea.texto}`);
-console.log(`Segunda Tarea (Destructuring): ${segundaTarea.texto}`);
+const [primeraTareaDemo, segundaTareaDemo] = listaTareasDemo;
+console.log(`\nPrimera Tarea (Destructuring): ${primeraTareaDemo.texto}`);
+console.log(`Segunda Tarea (Destructuring): ${segundaTareaDemo.texto}`);
 
 // Destructuring de Objeto: Extrae propiedades específicas de un objeto
-const { texto, completada } = listaTareas[2]; 
+const { texto, completada } = listaTareasDemo[2]; 
 console.log(`Tercera Tarea Desestructurada: ${texto} (Completada: ${completada})`);
 console.log("---------------------------------------------------\n");
