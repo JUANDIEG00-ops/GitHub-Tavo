@@ -38,10 +38,12 @@ export default function App() {
   const fecha = new Date().toLocaleString(); 
   return (
     <main>
-      <h1>Hola SENA</h1>
+      <h1>Hola, soy Luis - Aprendiz ADSO".</h1>
       <p>
         Fecha y hora actual: **{fecha}**
       </p>
+      <p>Espero aprender a construir interfaces de usuario robustas y modernas con ReactJS, 
+        dominando el uso de componentes y hooks para crear aplicaciones web escalables.</p>
       
     </main>
   );
