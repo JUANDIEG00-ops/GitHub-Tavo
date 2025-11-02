@@ -1,28 +1,42 @@
-/* src/App.css */
-
-/* 1. Establece un color de fondo para tu componente principal */
-.agenda-adso-app {
-  /* ESTO es el requisito clave: selecciona un color para el fondo */
-  background-color: #150e0e; /* Ejemplo: un gris muy claro. Puedes usar 'lightskyblue', 'pink', o un código HEX */
-  
-  /* Puedes añadir estos estilos para centrar el contenido y mejorar la visualización */
-  min-height: 100vh; /* Ocupa el 100% de la altura de la vista */
-  padding: 40px;
-  font-family: Arial, sans-serif;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
 }
 
-/* 2. Opcional: Estilos para el título y el texto */
-.agenda-adso-app h1 {
-  color: #007bff; /* Color azul para el título */
-  margin-bottom: 20px;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.expectativas p {
-  max-width: 800px;
-  margin: 0 auto 15px;
-  line-height: 1.6;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-/* 3. Limpia el CSS original de Vite */
-/* Puedes eliminar o comentar todo el código CSS que no uses, como las clases '.logo' o el CSS del botón de conteo. */
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

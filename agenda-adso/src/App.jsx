@@ -1,48 +1,48 @@
-// src/App.jsx
+//import { useState } from 'react'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//import './App.css'
 
-// Importamos los estilos del componente.
-import './App.css'; 
+//function App() {
+  //const [count, setCount] = useState(0)
 
-// Definición del Componente Funcional App
-function App() {
+  //return (
+    //<>
+      //<div>
+        //<a href="https://vite.dev" target="_blank">
+          //<img src={viteLogo} className="logo" alt="Vite logo" />
+        //</a>
+        //<a href="https://react.dev" target="_blank">
+          //<img src={reactLogo} className="logo react" alt="React logo" />
+        //</a>
+      //</div>
+      //<h1>Vite + React</h1>
+      //<div className="card">
+        //<button onClick={() => setCount((count) => count + 1)}>
+          //count is {count}
+        //</button>
+        //<p>
+          //Edit <code>src/App.jsx</code> and save to test HMR
+        //</p>
+      //</div>
+      //<p className="read-the-docs">
+        //Click on the Vite and React logos to learn more
+      //</p>
+    //</>
+  //)
+//}
 
-  // La lógica del componente va aquí.
-  // Aquí es donde en la Semana 2 empezarás a usar let, const, arrow functions, etc.
+//export default App
 
-  // Usamos el hook useState original de Vite como ejemplo para mostrar cómo se vería la lógica
-  // Si no planeas usar el contador, puedes ELIMINAR la línea de 'useState'
-  // const [count, setCount] = useState(0); 
-  
-  // Obtenemos la fecha actual para el footer
-  const fechaActual = new Date().toLocaleDateString();
-
+export default function App() {
+  const fecha = new Date().toLocaleString(); 
   return (
-    // Reemplazamos el div por <main> y agregamos una clase para los estilos
-    <main className="agenda-adso-app">
+    <main>
+      <h1>Hola SENA</h1>
+      <p>
+        Fecha y hora actual: **{fecha}**
+      </p>
       
-      {/* 1. Mensaje Personalizado */}
-      <h1>Hola SENA, soy Luis David Herrera - Aprendiz ADSO</h1>
-
-      {/* 2. Expectativas del Curso */}
-      <section className="expectativas">
-        <p>
-          ¡Mi primer componente React ha sido configurado con éxito!
-        </p>
-        <p>
-          En este curso de **Desarrollo Front-End con ReactJS** espero dominar 
-          los fundamentos esenciales de JavaScript moderno (ES6+), aprender a construir 
-          componentes funcionales robustos y, finalmente, aplicar estos conocimientos 
-          para desarrollar la **Agenda ADSO** de forma profesional y eficiente.
-        </p>
-      </section>
-
-      {/* 3. Footer simple para cumplir el requisito de agregar información */}
-      <footer>
-        <small>Proyecto Agenda ADSO | Semana 1 | Fecha: {fechaActual}</small>
-      </footer>
     </main>
   );
 }
-
-// Exportamos el componente para que pueda ser renderizado en main.jsx
-export default App;
