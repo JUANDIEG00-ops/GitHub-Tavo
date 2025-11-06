@@ -1,55 +1,35 @@
-// ===================================================
-// EJERCICIO 1: Variables y Operaciones
-// ===================================================
-const nombre = "Carolina";
-const ficha = 3223874;
-const nota1 = 4.0;
-const nota2 = 4.5;
-const nota3 = 3.8;
 
-const promedio = (nota1 + nota2 + nota3) / 3;
-console.log(`Aprendiz: ${nombre}`);
-console.log(`Ficha: ${ficha}`);
-console.log(`Promedio: ${promedio.toFixed(2)}`); // toFixed(2) limita el resultado a 2 decimales
-const aprobado = promedio >= 3.0;
-console.log(`Estado: ${aprobado ? 'APROBADO' : 'NO APROBADO'}`);
+// PROGRAMA: CÁLCULO DE NOTAS DE APRENDIZ SENA
+// 01. Datos del Aprendiz
+const NOMBRE_APRENDIZ = "Luis Herrera"; // Reemplazar con tu nombre
+const NUMERO_FICHA = "3169901"; // Reemplazar con tu número de ficha
 
-console.log('--------------------------------------------------');
+// 02. Registro de Notas
+// Array con tres calificaciones
+const NOTAS = [4.0, 4.5, 3.8];
+const NOTA_MINIMA_APROBACION = 3.0; // Criterio de aprobación
 
-// ===================================================
-// EJERCICIO 2: Funciones Avanzadas (Arrays y Objetos)
-// ===================================================
-const aprendices = [
-{ nombre: "Ana", nota: 4.2 },
-{ nombre: "Luis", nota: 2.8 },
-{ nombre: "María", nota: 4.5 },
-{ nombre: "Pedro", nota: 3.5 }
-];
 
-// Filtrar aprobados (uso del método .filter())
-const aprobados = aprendices.filter(a => a.nota >= 3.0);
-console.log("Aprobados:", aprobados.length);
+// 03. Cálculo de Promedio
+// Usamos el método .reduce() para sumar los elementos del array y luego dividimos por la cantidad de elementos.
+const sumaNotas = NOTAS.reduce((acumulador, notaActual) => acumulador + notaActual, 0);
+const promedioFinal = sumaNotas / NOTAS.length;
 
-// Calcular promedio general (uso del método .reduce())
-const totalNotas = aprendices.reduce((sum, a) => sum + a.nota, 0);
-const promedioGrupo = totalNotas / aprendices.length;
-console.log("Promedio grupo:", promedioGrupo.toFixed(2));
+// 04. Determinación de Estado
+// Usamos un operador ternario para definir el mensaje.
+const estadoAprobacion = promedioFinal >= NOTA_MINIMA_APROBACION ? "APROBADO" : "NO APROBADO";
 
-// Generar lista de nombres (uso del método .map())
-const nombres = aprendices.map(a => a.nombre);
-console.log("Nombres:", nombres.join(", "));
 
-// Creación de objetos con una función de flecha
-const crearContacto = (nombre, telefono) => ({
-id: Date.now(),
-nombre: nombre,
-telefono: telefono,
-fechaCreacion: new Date().toLocaleDateString()
-});
-
-const contacto1 = crearContacto("Gustavo", "3001234567");
-console.log(contacto1);
-
-// Desestructuración de objetos
-const { nombre: nombreContacto, telefono } = contacto1;
-console.log(`Contacto: ${nombreContacto} - ${telefono}`);
+// 05. Presentación de Resultados (Salida formateada en consola)
+console.log("\n==================");
+console.log("SISTEMA DE NOTAS SENA");
+console.log("==================");
+console.log(`Aprendiz: ${NOMBRE_APRENDIZ}`);
+console.log(`Ficha: ${NUMERO_FICHA}`);
+// Usamos .join(', ') para mostrar el array de notas como una cadena separada por comas
+console.log(`Notas: ${NOTAS.join(', ')}`); 
+console.log("==================");
+// Usamos .toFixed(2) para mostrar el promedio con dos decimales
+console.log(`Promedio: ${promedioFinal.toFixed(2)}`); 
+console.log(`Estado: ${estadoAprobacion}`);
+console.log("==================\n");
