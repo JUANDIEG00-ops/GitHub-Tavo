@@ -1,37 +1,131 @@
+/* src/App.css */
+
 :root {
   --morado: #7c3aed;
   --morado-oscuro: #5b21b6;
-  --gris: #f5f5f7;
+  --gris: #374151;
   --borde: #d1d5db;
+  --error: #dc2626;
   --radio: 10px;
+  --shadow: 0 1px 4px rgba(0, 0, 0, .08);
 }
 
 body {
-  background: var(--gris);
-  font-family: system-ui;
+  background: #f8fafc;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  color: var(--gris);
 }
 
 .app-container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   text-align: center;
 }
 
-.card {
-  background: #fff;
-  padding: 15px;
-  margin-top: 10px;
-  border-radius: var(--radio);
-  border: 1px solid var(--borde);
+.app-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--morado);
+  margin: .3rem 0;
 }
 
-.btn-agregar {
+.subtitulo {
+  font-size: .95rem;
+  color: #6b7280;
+  margin-bottom: 1.2rem;
+}
+
+/* --- Formulario --- */
+.form-contacto {
+  background: #fff;
+  padding: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+label {
+  font-size: .85rem;
+  font-weight: 500;
+}
+
+input {
+  padding: .65rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  font-size: .9rem;
+}
+
+/* --- Botones --- */
+.btn-primario {
   background: var(--morado);
-  color: white;
+  color: #fff;
+  padding: .7rem;
+  border: 0;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: .2s;
+  width: 100%;
+}
+
+.btn-primario:hover {
+  background: var(--morado-oscuro);
 }
 
 .btn-eliminar {
-  background: #dc2626;
-  color: white;
+  background: var(--error);
+  color: #fff;
+  padding: .45rem .75rem;
+  border: 0;
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-size: .85rem;
+}
+
+.btn-eliminar:hover {
+  filter: brightness(.85);
+}
+
+/* --- Tarjeta de Contacto --- */
+.tarjeta-contacto {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  margin-bottom: .7rem;
+  text-align: left;
+}
+
+.tarjeta-contacto h3 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--morado-oscuro);
+}
+
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: .3rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #e0e7ff;
+  color: var(--morado-oscuro);
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 5px;
 }
