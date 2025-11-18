@@ -1,0 +1,85 @@
+:root {
+  --morado: #7c3aed;
+  --morado-oscuro: #5b21b6;
+  --gris: #f5f5f7;
+  --borde: #d1d5db;
+  --radio: 10px;
+}
+
+body {
+  background: var(--gris);
+  font-family: system-ui;
+}
+
+.app-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-title {
+  color: var(--morado-oscuro);
+  margin-bottom: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input {
+  padding: 10px;
+  border-radius: var(--radio);
+  border: 1px solid var(--borde);
+  background: white;
+}
+
+.btn-agregar {
+  background: var(--morado);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: var(--radio);
+  cursor: pointer;
+}
+.btn-agregar:hover {
+  background: var(--morado-oscuro);
+}
+
+.card {
+  background: #fff;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: var(--radio);
+  border: 1px solid var(--borde);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--morado);
+  color: white;
+  padding: 4px 8px;
+  border-radius: var(--radio);
+  font-size: 0.8rem;
+  width: fit-content;
+}
+
+.btn-eliminar {
+  background: #dc2626;
+  color: white;
+  padding: 8px;
+  border-radius: var(--radio);
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.btn-eliminar:hover {
+  background: #b91c1c;
+}
