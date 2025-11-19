@@ -1,17 +1,10 @@
 {
   "contactos": [
     {
-      "id": "1d3f",
-      "nombre": "Gustavo Adolfo Bolaños dorado",
-      "telefono": "3217532037",
-      "correo": "gabodorado@gmail.com",
-      "etiqueta": "profe"
-    },
-    {
-      "id": "b4ee",
-      "nombre": "Luis",
-      "telefono": "0000312547",
-      "correo": "luisfernando@gmail.com",
+      "id": "dd81",
+      "nombre": "Juan Diego ",
+      "telefono": "3006700977",
+      "correo": "juandiego20091212@gmail.com",
       "etiqueta": "Empleado mayor"
     }
   ]
