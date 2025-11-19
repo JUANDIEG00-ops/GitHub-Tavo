@@ -1,7 +1,11 @@
+/* Trae las capas base, componentes y utilidades de Tailwind */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-@apply bg-gray-50 text-gray-800 font-sans;
+/* Estilos globales adicionales */
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-800 font-sans;
+  }
 }
