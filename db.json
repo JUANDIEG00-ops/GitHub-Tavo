@@ -6,6 +6,13 @@
       "telefono": "3006700977",
       "correo": "juandiego20091212@gmail.com",
       "etiqueta": "Empleado mayor"
+    },
+    {
+      "id": "608c",
+      "nombre": "Juan Diego ",
+      "telefono": "3006700977",
+      "correo": "luisfernando@gmail.com",
+      "etiqueta": "Jefe"
     }
   ]
 }
