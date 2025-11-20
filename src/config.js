@@ -15,3 +15,6 @@ titulo: "Agenda ADSO v9",
 subtitulo:
     "Gestión de contactos conectada a una API local con JSON Server, con validaciones y mejor experiencia de usuario.",
 };
+
+
+
