@@ -13,6 +13,20 @@
       "telefono": "3013250363",
       "correo": "Luisdavidherreraarroyom@gmail.com",
       "etiqueta": "Aprendiz"
+    },
+    {
+      "id": "f605",
+      "nombre": "Mateo",
+      "telefono": "0987654321",
+      "correo": "mateo@gmail.com",
+      "etiqueta": "trabajador"
+    },
+    {
+      "id": "e016",
+      "nombre": "Matias",
+      "telefono": "0869785",
+      "correo": "matias@gmail.com",
+      "etiqueta": "trabajador2"
     }
   ]
 }

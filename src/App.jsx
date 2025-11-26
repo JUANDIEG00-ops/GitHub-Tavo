@@ -1,5 +1,3 @@
-// src/App.jsx
-
 import { useEffect, useState } from "react";
 import {
     listarContactos,
@@ -21,28 +19,26 @@ function App() {
     const [error, setError] = useState("");
     const [exito, setExito] = useState(""); 
 
+    // ✅ CLASE 10: NUEVOS ESTADOS PARA BÚSQUEDA Y ORDENAMIENTO
+    const [busqueda, setBusqueda] = useState("");
+    const [ordenAsc, setOrdenAsc] = useState(true); // true = A-Z (predeterminado), false = Z-A
+
     // Función general para mostrar el error amigable al usuario
     const mostrarErrorAmigable = (error) => {
-        // En esta nueva versión, el servicio (api.js) ya nos lanza un mensaje útil
-        // cuando hay un error de conexión o un error HTTP.
         setError(error.message);
         console.error("Error capturado para el usuario:", error.message);
     }
     
-    // ------------------------------------------------------------------
     // 1. FUNCIÓN CARGAR CONTACTOS
-    // ------------------------------------------------------------------
     useEffect(() => {
         const cargarContactos = async () => {
             try {
                 setCargando(true);
                 setError("");
                 
-                // api.js ya maneja la verificación de respuesta
                 const data = await listarContactos(); 
                 setContactos(data);
             } catch (error) {
-                // El catch es ahora muy limpio
                 mostrarErrorAmigable(error);
             } finally {
                 setCargando(false);
@@ -51,9 +47,7 @@ function App() {
         cargarContactos();
     }, []);
 
-    // ------------------------------------------------------------------
     // 2. FUNCIÓN AGREGAR CONTACTO (POST)
-    // ------------------------------------------------------------------
     const onAgregarContacto = async (nuevoContacto) => {
         try {
             setError(""); 
@@ -67,15 +61,12 @@ function App() {
             setTimeout(() => setExito(""), 3000); 
 
         } catch (error) {
-            // El catch es ahora muy limpio
             mostrarErrorAmigable(error);
             throw error; 
         }
     };
 
-    // ------------------------------------------------------------------
     // 3. FUNCIÓN ELIMINAR CONTACTO (DELETE)
-    // ------------------------------------------------------------------
     const onEliminarContacto = async (id) => {
         try {
             setError("");
@@ -89,10 +80,51 @@ function App() {
             setTimeout(() => setExito(""), 3000);
 
         } catch (error) {
-            // El catch es ahora muy limpio
             mostrarErrorAmigable(error);
         }
     };
+
+    /* ========================================================= */
+    /* ✅ CLASE 10: LÓGICA DE FILTRADO Y ORDENAMIENTO (INMUTABLE) */
+    /* ========================================================= */
+
+    // 1. FILTRADO: Se aplica a la lista original (contactos)
+    const contactosFiltrados = contactos.filter((c) => {
+        // Si la búsqueda está vacía, mostramos todos los contactos
+        if (busqueda.trim() === "") return true;
+
+        const termino = busqueda.toLowerCase().trim();
+        // Normalizamos campos a minúsculas
+        const nombre = c.nombre.toLowerCase();
+        const correo = c.correo.toLowerCase();
+        const etiqueta = (c.etiqueta || "").toLowerCase();
+        const telefono = c.telefono || ""; // Incluido para el Mini Reto 1
+
+        // Retorna true si el término se encuentra en nombre, correo, etiqueta O teléfono.
+        return (
+            nombre.includes(termino) ||
+            correo.includes(termino) ||
+            etiqueta.includes(termino) ||
+            telefono.includes(termino)
+        );
+    });
+
+    // 2. ORDENAMIENTO: Se aplica sobre la lista filtrada
+    // IMPORTANTE: Se usa [...contactosFiltrados] para copiar el array antes de sort(), 
+    // garantizando la inmutabilidad.
+    const contactosOrdenados = [...contactosFiltrados].sort((a, b) => {
+        const nombreA = a.nombre.toLowerCase();
+        const nombreB = b.nombre.toLowerCase();
+
+        if (nombreA < nombreB) {
+            return ordenAsc ? -1 : 1; // Orden A-Z: -1; Orden Z-A: 1
+        }
+        if (nombreA > nombreB) {
+            return ordenAsc ? 1 : -1; // Orden A-Z: 1; Orden Z-A: -1
+        }
+        return 0; // Son iguales
+    });
+
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -132,14 +164,40 @@ function App() {
                     <>
                         <FormularioContacto onAgregar={onAgregarContacto} />
 
+                        {/* ✅ CLASE 10: BARRA DE BÚSQUEDA Y ORDENAMIENTO (EVIDENCIA 1) */}
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6 p-4 border border-gray-200 bg-white rounded-xl shadow-sm">
+                            {/* Input de Búsqueda Controlado */}
+                            <input
+                                type="text"
+                                className="flex-grow w-full md:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-purple-500 focus:border-purple-500 transition duration-150"
+                                placeholder="Buscar por nombre, correo, teléfono o etiqueta..."
+                                value={busqueda} // Valor controlado por el estado
+                                onChange={(e) => setBusqueda(e.target.value)} // Función para actualizar el estado
+                            />
+                            {/* Botón de Ordenamiento */}
+                            <button
+                                type="button"
+                                onClick={() => setOrdenAsc((prev) => !prev)} // Alternar la dirección del orden
+                                className="shrink-0 w-full md:w-auto px-4 py-2 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition duration-150 shadow-md"
+                            >
+                                {ordenAsc ? "Ordenar Z-A" : "Ordenar A-Z"} {/* Texto dinámico */}
+                            </button>
+                        </div>
+                        {/* FIN: BARRA DE BÚSQUEDA Y ORDENAMIENTO */}
+
                         <section className="space-y-4">
-                            {contactos.length === 0 ? (
+                            {/* Renderizamos contactosOrdenados, que ya está filtrado y ordenado */}
+                            {contactosOrdenados.length === 0 ? (
                                 <p className="text-sm text-gray-500">
-                                    Aún no tienes contactos registrados. Agrega el primero usando
-                                    el formulario superior.
+                                    {/* ✅ CLASE 10: Mensaje "No encontrado" (EVIDENCIA 3) */}
+                                    {/* Muestra un mensaje distinto si la API está vacía, o si la búsqueda no dio resultados */}
+                                    {contactos.length > 0
+                                        ? "🚫 No se encontraron contactos que coincidan con la búsqueda."
+                                        : "Aún no tienes contactos registrados. Agrega el primero usando el formulario superior."}
                                 </p>
                             ) : (
-                                contactos.map((c) => (
+                                // ✅ CLASE 10: Usamos contactosOrdenados.map (EVIDENCIA 2)
+                                contactosOrdenados.map((c) => (
                                     <ContactoCard
                                         key={c.id} 
                                         nombre={c.nombre}

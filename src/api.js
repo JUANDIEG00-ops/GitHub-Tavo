@@ -7,9 +7,7 @@ import { API_BASE_URL } from "./config";
 // Usamos la URL base importada
 const API = API_BASE_URL;
 
-// ==========================================================
 // FUNCIÓN CENTRALIZADA PARA MANEJAR RESPUESTAS Y ERRORES
-// ==========================================================
 
 // Esta función se encarga de:
 // 1. Verificar si la respuesta HTTP es exitosa (código 200-299).
@@ -45,9 +43,7 @@ async function manejarRespuesta(promesaRespuesta, mensajeFalloConexion) {
     }
 }
 
-// ==========================================================
 // 1. LISTAR TODOS LOS CONTACTOS (GET)
-// ==========================================================
 /** * Documentación: Obtiene la lista completa de contactos del servidor.
  * Retorna: Array de contactos.
  */
@@ -58,9 +54,7 @@ export const listarContactos = async () => {
     );
 };
 
-// ==========================================================
 // 2. CREAR UN NUEVO CONTACTO (POST)
-// ==========================================================
 /**
  * Documentación: Envía un nuevo objeto de contacto al servidor.
  * Retorna: El objeto de contacto creado por el servidor (con ID).
@@ -80,9 +74,7 @@ export const crearContacto = async (nuevoContacto) => {
     );
 };
 
-// ==========================================================
 // 3. ELIMINAR CONTACTO POR ID (DELETE)
-// ==========================================================
 /**
  * Documentación: Elimina un contacto específico usando su ID.
  * Retorna: null si es exitoso.
