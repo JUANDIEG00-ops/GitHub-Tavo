@@ -8,25 +8,32 @@
       "etiqueta": "profe"
     },
     {
-      "id": "fef3",
-      "nombre": "Luis David Herrera Arroyo",
-      "telefono": "3013250363",
-      "correo": "Luisdavidherreraarroyom@gmail.com",
-      "etiqueta": "Aprendiz"
+      "id": "274b",
+      "nombre": "Juan Diego ",
+      "telefono": "3006700977",
+      "correo": "juandiego20091212@gmail.com",
+      "etiqueta": "jefe"
     },
     {
-      "id": "f605",
-      "nombre": "Mateo",
-      "telefono": "0987654321",
-      "correo": "mateo@gmail.com",
-      "etiqueta": "trabajador"
+      "id": "fbe6",
+      "nombre": "Olga Opsina",
+      "telefono": "3135171491",
+      "correo": "olgaospinac15@gmail.com",
+      "etiqueta": "Jefa"
     },
     {
-      "id": "e016",
-      "nombre": "Matias",
-      "telefono": "0869785",
-      "correo": "matias@gmail.com",
-      "etiqueta": "trabajador2"
+      "id": "1d6c",
+      "nombre": "Lupe",
+      "telefono": "3006700977",
+      "correo": "Lupe@gmail.com",
+      "etiqueta": "Mascota"
+    },
+    {
+      "id": "b499",
+      "nombre": "Miguel Torres",
+      "telefono": "30546872367",
+      "correo": "miguelgt@gmail.com",
+      "etiqueta": "Empleado"
     }
   ]
 }
